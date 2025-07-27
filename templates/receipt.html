@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Thank you for your purchase!</h1>
+
+<p><strong>Date:</strong> {{ receipt.datetime }}</p>
+
+<h2>Items</h2>
+<table>
+    <tr><th>Product</th><th>Quantity</th><th>Price</th><th>Subtotal</th></tr>
+    {% for item in receipt['items'] %}
+    <tr>
+        <td>{{ item.title }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>${{ item.price }}</td>
+        <td>${{ item.price * item.quantity }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<p><strong>Total Paid:</strong> ${{ receipt.total }}</p>
+
+<a href="{{ url_for('home') }}">
+    <button>Return to Store</button>
+</a>
+{% endblock %}
