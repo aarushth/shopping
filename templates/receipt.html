@@ -7,7 +7,7 @@
 <h2>Items</h2>
 <table>
     <tr><th>Product</th><th>Quantity</th><th>Price</th><th>Subtotal</th></tr>
-    {% for item in <receipt></receipt> %}
+    {% for item in receipt['items'] %}
     <tr>
         <td>{{ item.title }}</td>
         <td>{{ item.quantity }}</td>
